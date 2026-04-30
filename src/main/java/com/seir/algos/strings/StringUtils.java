@@ -58,4 +58,32 @@ public class StringUtils {
         }
         return result;
     }
+
+    public static String longestSubstringNonRepeting(String value) {
+        StringBuilder result = new StringBuilder();
+        if (value == null || value.isEmpty()) {
+            return result.toString();
+        }
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        int start = 0;
+        int end = 0;
+        int maxLength = 0;
+        while (end < value.length()) {
+            char currentChar = value.charAt(end);
+            if (charCountMap.containsKey(currentChar)) {
+                if (end - start > maxLength) {
+                    maxLength = end - start;
+                    result = new StringBuilder(value.substring(start, end));
+                }
+                charCountMap.clear();
+                start = end;
+            }
+            end++;
+            charCountMap.put(currentChar, 1);
+        }
+        if (!charCountMap.isEmpty() && end - start > maxLength) {
+            result = new StringBuilder(value.substring(start, end));
+        }
+        return result.toString();
+    }
 }

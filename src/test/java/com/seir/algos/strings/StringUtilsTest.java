@@ -41,4 +41,18 @@ public class StringUtilsTest {
         assertTrue(acronyms.isEmpty());
 
     }
+
+    @Test
+    public void testLongestSubstringNonRepeating() {
+        assertEquals("", StringUtils.longestSubstringNonRepeting(""));
+        assertEquals("", StringUtils.longestSubstringNonRepeting(null));
+        assertEquals("a", StringUtils.longestSubstringNonRepeting("a"));
+        assertEquals("ab", StringUtils.longestSubstringNonRepeting("ab"));
+        assertEquals("abc", StringUtils.longestSubstringNonRepeting("abc"));
+        assertEquals("abcd", StringUtils.longestSubstringNonRepeting("abcd"));
+        assertEquals("abc", StringUtils.longestSubstringNonRepeting("abcabc"));
+        assertEquals("abcd", StringUtils.longestSubstringNonRepeting("abcdabcd"));
+        assertEquals("abcd", StringUtils.longestSubstringNonRepeting("abcdabcdabcd"));
+        assertEquals("abcd", StringUtils.longestSubstringNonRepeting("aabcdabcdabcd"));
+    }
 }
