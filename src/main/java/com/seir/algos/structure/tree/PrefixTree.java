@@ -33,7 +33,7 @@ public class PrefixTree {
             return Optional.ofNullable(children.get(value));
         }
         public Node addChild(char value) {
-            return hasChild(value) ? getChild(value).orElse(children.put(value, new Node(value));
+            return getChild(value).orElse(children.put(value, new Node(value)));
         }
     }
 
