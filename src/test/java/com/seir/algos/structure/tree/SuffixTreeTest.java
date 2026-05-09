@@ -13,5 +13,19 @@ public class SuffixTreeTest {
         assertTrue(tree.search("ana"));
         assertFalse(tree.search("banan"));
         assertTrue(tree.search("nana"));
+        assertFalse(tree.search("nanna"));
+    }
+    @Test
+    public void testSearch2() {
+        SuffixTree tree = new SuffixTree("palmeiras");
+        assertTrue(tree.search("ras"));
+        assertFalse(tree.search("pal"));
+        assertTrue(tree.search("almeiras"));
+        assertTrue(tree.search("meiras"));
+        assertTrue(tree.search("meir"));
+        assertTrue(tree.search("me"));
+        assertTrue(tree.search("mei"));
+        assertTrue(tree.search("meir"));
+        assertTrue(tree.search("meiras"));
     }
 }
