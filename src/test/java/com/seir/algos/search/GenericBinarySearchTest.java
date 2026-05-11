@@ -23,4 +23,34 @@ public class GenericBinarySearchTest {
         int result =GenericBinarySearch.search(target, list);
         assertEquals(NOT_FOUND, result);
     }
+    @Test
+    public void testSearchOrInsertionPoint() {
+        int insertionPoint = GenericBinarySearch.searchOrInsertion("d", List.of("a", "b", "c"));
+        assertEquals(3, insertionPoint);
+
+        insertionPoint = GenericBinarySearch.searchOrInsertion("a", List.of("a", "b", "c"));
+        assertEquals(0, insertionPoint);
+    }
+
+    @Test
+    public void testLowerBoundSearch() {
+        int lowerBound = GenericBinarySearch.lowerBoundSearch("b", List.of("a", "b", "b", "c"));
+        assertEquals(1, lowerBound);
+        lowerBound = GenericBinarySearch.lowerBoundSearch("c", List.of("a", "b", "b", "c"));
+        assertEquals(3, lowerBound);
+        lowerBound = GenericBinarySearch.lowerBoundSearch("d", List.of("a", "b", "b", "c"));
+        assertEquals(-1, lowerBound);
+
+    }
+
+    @Test
+    public void testUpperBoundSearch() {
+        int upperBound = GenericBinarySearch.upperBoundSearch("b", List.of("a", "b", "b", "c"));
+        assertEquals(2, upperBound);
+        upperBound = GenericBinarySearch.upperBoundSearch("c", List.of("a", "b", "b", "c"));
+        assertEquals(3, upperBound);
+        upperBound = GenericBinarySearch.upperBoundSearch("d", List.of("a", "b", "b", "c"));
+        assertEquals(-1, upperBound);
+
+    }
 }
