@@ -51,4 +51,30 @@ public class BinarySearchTest {
         assertEquals(-1, upperBound);
 
     }
+
+    @Test
+    public void testMinCutHeight() {
+        List<Integer> heights = List.of(1, 2, 3, 4, 5);
+        int targetCumulation = 5;
+        int minHeight = BinarySearch.minCutHeight(heights, targetCumulation);
+        assertEquals(2, minHeight);
+    }
+    @Test
+    public void testMinCutHeight2() {
+        List<Integer> heights = List.of(2, 6, 3, 8);
+        int targetCumulation = 7;
+        int minHeight = BinarySearch.minCutHeight(heights, targetCumulation);
+        assertEquals(3, minHeight);
+    }
+
+    @Test
+    public void testSearchInRotatedSortedArray() {
+        int index = BinarySearch.searchInRotatedSortedArray(List.of(4, 5, 6, 7, 0, 1, 2), 4);
+        assertEquals(0, index);
+        index = BinarySearch.searchInRotatedSortedArray( List.of(4, 5, 6, 7, 0, 1, 2), 0);
+        assertEquals(4, index);
+        index = BinarySearch.searchInRotatedSortedArray(List.of(4, 5, 6, 7, 0, 1, 2), 3);
+        assertEquals(-1, index);
+    }
+
 }
